@@ -19,6 +19,8 @@ internal static class TimeScalePatch
     
     internal static void Postfix()
     {
+        if (!SettingsManager.IsEnabled) return;
+        
         Time.timeScale = SettingsManager.Rate;
         Singleton<AudioManager>.instance.bgm.pitch = SettingsManager.Rate;
     }

@@ -2,11 +2,12 @@ using GearBox.Managers;
 using HarmonyLib;
 using Il2CppFormulaBase;
 
-namespace GearBox.Patches;
+namespace GearBox.Patches.PitchChangerPatches;
 
 [HarmonyPatch(typeof(StageBattleComponent))]
 internal static class PauseHandlerPatch
 {
+    /*
     [HarmonyPatch(nameof(StageBattleComponent.Pause))]
     [HarmonyPrefix]
     internal static void SbcPausePostfix()
@@ -28,4 +29,5 @@ internal static class PauseHandlerPatch
 
         ModManager.PitchChangerComp.enabled = true;
     }
+    */
 }

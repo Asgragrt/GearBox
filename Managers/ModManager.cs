@@ -15,6 +15,9 @@ internal static partial class ModManager
 
     [PnlMenuToggle("GearBoxToggle", "GearBox", nameof(SettingsManager.IsEnabled))]
     internal static GameObject EnableToggle { get; set; }
+    
+    [PnlMenuToggle("GearBoxPitchToggle", "GearBox Pitch", nameof(SettingsManager.KeepPitch))]
+    internal static GameObject PitchToggle { get; set; }
 
     internal static GameObject RateSlider { get; set; }
 

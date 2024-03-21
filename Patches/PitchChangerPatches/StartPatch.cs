@@ -14,6 +14,8 @@ internal static class StartPatch
     {
         if (!SettingsManager.IsEnabled) return;
 
+        if (!SettingsManager.KeepPitch) return;
+        
         var audioGame = Singleton<AudioManager>.instance.bgm.gameObject;
         ModManager.PitchChangerComp = audioGame.TryGetComponent<PitchChanger>(out var pitchChanger)
             ? pitchChanger

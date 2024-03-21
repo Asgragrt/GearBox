@@ -15,7 +15,9 @@ internal static class OffsetPatch
         if (!SettingsManager.IsEnabled) return;
 
         if (!ModManager.PitchChangerComp) return;
-
+        
+        if (!SettingsManager.KeepPitch) return;
+        
         // Add offset
         __result += AudioSettings.GetConfiguration().dspBufferSize * ModManager.PitchChangerComp.DelayCounter;
     }

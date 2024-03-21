@@ -38,6 +38,7 @@ internal class PitchChanger : MonoBehaviour
             var arrayData = data.ToArray();
             _soundTouchProcessor.PutSamples(arrayData, samples);
 
+            // Counting delay batches
             DelayCounter += _soundTouchProcessor.AvailableSamples == 0 ? 1 : 0;
 
             _soundTouchProcessor.ReceiveSamples(arrayData, samples);

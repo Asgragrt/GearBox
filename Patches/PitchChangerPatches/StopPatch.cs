@@ -11,7 +11,7 @@ namespace GearBox.Patches;
 internal static class StopPatch
 {
     [HarmonyPatch(typeof(StageBattleComponent), nameof(StageBattleComponent.Exit))]
-    [HarmonyPostfix]
+    [HarmonyPrefix]
     internal static void SBCExitPostfix()
     {
         if (!SettingsManager.IsEnabled) return;
@@ -23,7 +23,7 @@ internal static class StopPatch
 
     [HarmonyPatch(typeof(PnlVictory), nameof(PnlVictory.OnVictory), typeof(Object), typeof(Object),
         typeof(Il2CppReferenceArray<Object>))]
-    [HarmonyPostfix]
+    [HarmonyPrefix]
     internal static void PnlVPostfix()
     {
         if (!SettingsManager.IsEnabled) return;

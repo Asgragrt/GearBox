@@ -8,7 +8,7 @@ namespace GearBox.Patches;
 internal static class PauseHandlerPatch
 {
     [HarmonyPatch(nameof(StageBattleComponent.Pause))]
-    [HarmonyPostfix]
+    [HarmonyPrefix]
     internal static void SbcPausePostfix()
     {
         if (!SettingsManager.IsEnabled) return;

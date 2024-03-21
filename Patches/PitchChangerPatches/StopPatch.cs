@@ -9,7 +9,7 @@ internal static class StopPatch
 {
     [HarmonyPatch(nameof(StageBattleComponent.Exit))]
     [HarmonyPostfix]
-    internal static void SBCExitPostfix()
+    internal static void ExitPostfix()
     {
         if (!SettingsManager.IsEnabled) return;
 
@@ -20,7 +20,7 @@ internal static class StopPatch
 
     [HarmonyPatch(nameof(StageBattleComponent.End))]
     [HarmonyPrefix]
-    internal static void SBCEndPostfix()
+    internal static void EndPrefix()
     {
         if (!SettingsManager.IsEnabled) return;
 
@@ -31,7 +31,7 @@ internal static class StopPatch
     
     [HarmonyPatch(nameof(StageBattleComponent.Dead))]
     [HarmonyPrefix]
-    internal static void SBCDeadPostfix()
+    internal static void DeadPrefix()
     {
         if (!SettingsManager.IsEnabled) return;
 

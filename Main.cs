@@ -18,7 +18,7 @@ public partial class Main : MelonMod
     {
         //Restart audio speed
         Singleton<AudioManager>.instance.bgm.pitch = 1f;
-        
+
         //Restart game speed
         Time.timeScale = 1f;
     }

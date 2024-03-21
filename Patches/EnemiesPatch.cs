@@ -4,7 +4,6 @@ using Il2Cpp;
 
 namespace GearBox.Patches;
 
-
 [HarmonyPatch(typeof(BaseEnemyObjectController))]
 internal static class EnemiesPatch
 {

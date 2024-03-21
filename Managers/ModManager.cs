@@ -9,14 +9,14 @@ namespace GearBox.Managers;
 
 internal static partial class ModManager
 {
+    public static readonly StageBattleComponent StageBattleComponent = Singleton<StageBattleComponent>.instance;
+
+    public static readonly AudioManager AudioManager = Singleton<AudioManager>.instance;
+
     [PnlMenuToggle("GearBoxToggle", "GearBox", nameof(SettingsManager.IsEnabled))]
     internal static GameObject EnableToggle { get; set; }
 
     internal static GameObject RateSlider { get; set; }
-    
-    internal static PitchChanger PitchChangerComp { get; set; }
-    
-    public static readonly StageBattleComponent StageBattleComponent = Singleton<StageBattleComponent>.instance;
 
-    public static readonly AudioManager AudioManager = Singleton<AudioManager>.instance;
+    internal static PitchChanger PitchChangerComp { get; set; }
 }

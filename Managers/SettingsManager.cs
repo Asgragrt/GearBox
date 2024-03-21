@@ -17,18 +17,15 @@ internal static class SettingsManager
 
     private static MelonPreferences_Entry<bool> _isEnabled;
 
+    private static MelonPreferences_Entry<int> _scaledRate;
+
     internal static bool IsEnabled
     {
         get => _isEnabled.Value && ScaledRate != 100;
         set => _isEnabled.Value = value;
     }
 
-    internal static float Rate
-    {
-        get => (float)ScaledRate / 100;
-    }
-
-    private static MelonPreferences_Entry<int> _scaledRate;
+    internal static float Rate => (float)ScaledRate / 100;
 
     internal static int ScaledRate
     {
@@ -45,7 +42,7 @@ internal static class SettingsManager
     {
         var originalScaledRate = ScaledRate;
         ScaledRate = Math.Clamp(ScaledRate, LowerScaledRate, HigherScaledRate);
-        
+
         if (originalScaledRate == ScaledRate) return;
         Melon<Main>.Logger.Warning($"ScaledRate outside of bounds.\nMin: {LowerScaledRate}, Max: {HigherScaledRate}");
     }
@@ -56,7 +53,7 @@ internal static class SettingsManager
         mainCategory.SetFilePath(SettingsPath, true, false);
 
         _isEnabled = mainCategory.CreateEntry(nameof(IsEnabled), true);
-        _scaledRate = mainCategory.CreateEntry(nameof(Rate), 150, 
+        _scaledRate = mainCategory.CreateEntry(nameof(Rate), 150,
             description: $"Percentage \nMin: {LowerScaledRate}, Max: {HigherScaledRate}");
     }
 }

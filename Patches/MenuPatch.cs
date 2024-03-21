@@ -2,10 +2,7 @@ using GearBox.Managers;
 using HarmonyLib;
 using Il2Cpp;
 using Il2CppAssets.Scripts.PeroTools.GeneralLocalization;
-using Il2CppAssets.Scripts.PeroTools.Nice.Actions;
 using Il2CppAssets.Scripts.PeroTools.Nice.Events;
-using Il2CppAssets.Scripts.PeroTools.Nice.Interface;
-using Il2CppAssets.Scripts.PeroTools.Nice.Variables;
 using Il2CppAssets.Scripts.UI.Panels;
 using MuseDashMirror.Extensions.UnityExtensions;
 using UnityEngine;
@@ -61,7 +58,7 @@ internal static class MenuPatch
         {
             slider.Set(slider.value + ScaledDefinition);
         }));
-        
+
         var prevButton = RateSlider.transform.GetChild(2);
         // Remove onclickevent, keeping the audio
         prevButton.GetComponent<OnClick>().playables.RemoveAt(1);

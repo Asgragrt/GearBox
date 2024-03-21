@@ -18,7 +18,7 @@ internal static class StartPatch
         ModManager.PitchChangerComp = audioGame.TryGetComponent<PitchChanger>(out var pitchChanger)
             ? pitchChanger
             : audioGame.AddComponent<PitchChanger>();
-        
+
         ModManager.PitchChangerComp.UpdatePitch();
         ModManager.PitchChangerComp.Flush();
         ModManager.PitchChangerComp.ClearCounter();

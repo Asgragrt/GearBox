@@ -28,7 +28,7 @@ internal static class StopPatch
 
         ModManager.PitchChangerComp.enabled = false;
     }
-    
+
     [HarmonyPatch(nameof(StageBattleComponent.Dead))]
     [HarmonyPrefix]
     internal static void DeadPrefix()

@@ -1,4 +1,3 @@
-using GearBox.Managers;
 using HarmonyLib;
 using Il2CppFormulaBase;
 

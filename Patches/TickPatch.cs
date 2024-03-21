@@ -5,7 +5,6 @@ using Decimal = Il2CppSystem.Decimal;
 
 namespace GearBox.Patches;
 
-
 [HarmonyPatch(typeof(StageBattleComponent))]
 internal static class TickPatch
 {
@@ -15,7 +14,7 @@ internal static class TickPatch
     internal static void TimeStartPostfix(ref float __result)
     {
         if (!SettingsManager.IsEnabled) return;
-        
+
         __result *= SettingsManager.Rate;
     }
 

@@ -1,7 +1,6 @@
 using GearBox.Managers;
 using HarmonyLib;
 using Il2Cpp;
-using MelonLoader;
 
 namespace GearBox.Patches;
 
@@ -14,14 +13,9 @@ internal static class GirlPatch
     {
         if (!SettingsManager.IsEnabled) return;
 
-        if (__instance.animator)
-        {
-            __instance.animator.speed *= SettingsManager.Rate;
-        }
+        if (__instance.animator) __instance.animator.speed *= SettingsManager.Rate;
 
         if (__instance.spineActionCtrl.m_SkeletonAnimation)
-        {
             __instance.spineActionCtrl.m_SkeletonAnimation.timeScale *= SettingsManager.Rate;
-        }
     }
 }

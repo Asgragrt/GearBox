@@ -20,7 +20,7 @@ internal class PitchChanger : MonoBehaviour
         Melon<Main>.Logger.Msg("New Component Start");
         _soundTouchProcessor = new SoundTouchProcessor
         {
-            Channels = 2,
+            Channels = ModManager.AudioManager.bgm.clip.channels,
             SampleRate = ModManager.AudioManager.bgm.clip.frequency,
             Pitch = 1f / SettingsManager.Rate
         };

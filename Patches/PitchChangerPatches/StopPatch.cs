@@ -1,16 +1,13 @@
 using GearBox.Managers;
 using HarmonyLib;
-using Il2Cpp;
 using Il2CppFormulaBase;
-using Il2CppInterop.Runtime.InteropTypes.Arrays;
-using Object = Il2CppSystem.Object;
 
-namespace GearBox.Patches;
+namespace GearBox.Patches.PitchChangerPatches;
 
-[HarmonyPatch]
+[HarmonyPatch(typeof(StageBattleComponent))]
 internal static class StopPatch
 {
-    [HarmonyPatch(typeof(StageBattleComponent), nameof(StageBattleComponent.Exit))]
+    [HarmonyPatch(nameof(StageBattleComponent.Exit))]
     [HarmonyPostfix]
     internal static void SBCExitPostfix()
     {
@@ -21,10 +18,20 @@ internal static class StopPatch
         ModManager.PitchChangerComp.enabled = false;
     }
 
-    [HarmonyPatch(typeof(PnlVictory), nameof(PnlVictory.OnVictory), typeof(Object), typeof(Object),
-        typeof(Il2CppReferenceArray<Object>))]
+    [HarmonyPatch(nameof(StageBattleComponent.End))]
     [HarmonyPrefix]
-    internal static void PnlVPostfix()
+    internal static void SBCEndPostfix()
+    {
+        if (!SettingsManager.IsEnabled) return;
+
+        if (!ModManager.PitchChangerComp) return;
+
+        ModManager.PitchChangerComp.enabled = false;
+    }
+    
+    [HarmonyPatch(nameof(StageBattleComponent.Dead))]
+    [HarmonyPrefix]
+    internal static void SBCDeadPostfix()
     {
         if (!SettingsManager.IsEnabled) return;
 

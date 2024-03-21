@@ -11,7 +11,7 @@ namespace GearBox.Patches;
 internal static class StopPatch
 {
     [HarmonyPatch(typeof(StageBattleComponent), nameof(StageBattleComponent.Exit))]
-    [HarmonyPrefix]
+    [HarmonyPostfix]
     internal static void SBCExitPostfix()
     {
         if (!SettingsManager.IsEnabled) return;

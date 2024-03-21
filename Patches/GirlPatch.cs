@@ -15,7 +15,7 @@ internal static class GirlPatch
 
         if (__instance.animator) __instance.animator.speed *= SettingsManager.Rate;
 
-        if (__instance.spineActionCtrl.m_SkeletonAnimation)
-            __instance.spineActionCtrl.m_SkeletonAnimation.timeScale *= SettingsManager.Rate;
+        if (!__instance.spineActionCtrl.m_SkeletonAnimation) return;
+        __instance.spineActionCtrl.m_SkeletonAnimation.timeScale *= SettingsManager.Rate;
     }
 }

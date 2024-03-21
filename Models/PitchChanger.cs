@@ -37,6 +37,8 @@ internal class PitchChanger : MonoBehaviour
 
         try
         {
+            if (_soundTouchProcessor is null) return;
+            
             var samples = data.Length / channels;
             var arrayData = data.ToArray();
             _soundTouchProcessor.PutSamples(arrayData, samples);

@@ -17,9 +17,8 @@ internal class PitchChanger : MonoBehaviour
 
     internal int DelayCounter { get; private set; }
 
-    public void Start()
+    public void Awake()
     {
-        Melon<Main>.Logger.Msg("New Component Start");
         var clip = ModManager.AudioManager.bgm.clip;
         _soundTouchProcessor = new SoundTouchProcessor
         {
@@ -31,14 +30,6 @@ internal class PitchChanger : MonoBehaviour
 
     public void OnAudioFilterRead(Il2CppStructArray<float> data, int channels)
     {
-        /*
-        var a = ModManager.AudioManager.bgm;
-        var b = ModManager.StageBattleComponent;
-        var c = a.time;
-        var d = b.timeFromMusicStart;
-        var es = b.timeFromMusicStartDecimal;
-        Melon<Main>.Logger.Msg($"A - {c:F3} - {d:F3} - {d-c:F3} - {es}");
-        */
         try
         {
             if (_soundTouchProcessor is null) return;
@@ -51,12 +42,10 @@ internal class PitchChanger : MonoBehaviour
 
             _soundTouchProcessor.ReceiveSamples(arrayData, samples);
             for (var i = 0; i < data.Length; i++) data[i] = arrayData[i];
-
-            Melon<Main>.Logger.Msg(DelayCounter);
         }
         catch (Exception e)
         {
-            Melon<Main>.Logger.Msg(e.ToString());
+            Melon<Main>.Logger.Error(e.ToString());
         }
     }
 

@@ -15,7 +15,7 @@ internal static class TickPatch
     internal static void TimeStartPostfix(ref float __result)
     {
         if (!SettingsManager.IsEnabled) return;
-
+        
         __result *= SettingsManager.Rate;
     }
 

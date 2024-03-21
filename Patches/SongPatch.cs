@@ -3,7 +3,6 @@ using HarmonyLib;
 using Il2CppAssets.Scripts.PeroTools.Commons;
 using Il2CppAssets.Scripts.PeroTools.Managers;
 using Il2CppFormulaBase;
-using UnityEngine;
 
 namespace GearBox.Patches;
 
@@ -13,7 +12,7 @@ internal static class SongPatch
     internal static void Postfix()
     {
         if (!SettingsManager.IsEnabled) return;
-        
-        //Singleton<AudioManager>.instance.bgm.pitch = SettingsManager.Rate;
+
+        Singleton<AudioManager>.instance.bgm.pitch = SettingsManager.Rate;
     }
 }
